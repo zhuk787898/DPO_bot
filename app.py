@@ -10,6 +10,7 @@ def run_telegram_bot_service():
 def run_video_processing_service():
     uvicorn.run("video_processor.processor:app", host="127.0.0.1", port=8001)
 
+
 # Функция для запуска генерации презентации сервиса
 def run_presentation_generation_service():
     uvicorn.run("presentation_generator.generator:app", host="127.0.0.1", port=8002)
