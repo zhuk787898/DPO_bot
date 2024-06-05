@@ -4,3 +4,4 @@ python-telegram-bot
 requests
 opencv-python
 python-pptx
+click
