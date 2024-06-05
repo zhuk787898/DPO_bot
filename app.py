@@ -1,6 +1,8 @@
 import multiprocessing
 import subprocess
 import click
+import os
+from pathlib import Path
 
 # Функция для запуска процессов в новом окне консоли (только для Windows)
 def run_in_new_console(command):
@@ -30,9 +32,12 @@ def main():
 @main.command()
 def start_all():
     """Запуск всех сервисов"""
-    telegram_bot_process.start()
-    video_processing_process.start()
-    presentation_generation_process.start()
+    if not telegram_bot_process.is_alive():
+        telegram_bot_process.start()
+    if not video_processing_process.is_alive():
+        video_processing_process.start()
+    if not presentation_generation_process.is_alive():
+        presentation_generation_process.start()
 
 
 @main.command()
