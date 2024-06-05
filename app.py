@@ -70,14 +70,14 @@ def start_video():
         video_processing_process.join()
 
 
-@cli.command()
+@main.command()
 def stop_video():
     """Остановка сервиса обработки видео"""
     if video_processing_process.is_alive():
         video_processing_process.terminate()
 
 
-@cli.command()
+@main.command()
 def start_presentation():
     """Запуск сервиса генерации презентаций"""
     if not presentation_generation_process.is_alive():
@@ -85,7 +85,7 @@ def start_presentation():
         presentation_generation_process.join()
 
 
-@cli.command()
+@main.command()
 def stop_presentation():
     """Остановка сервиса генерации презентаций"""
     if presentation_generation_process.is_alive():
@@ -94,4 +94,4 @@ def stop_presentation():
 
 
 if __name__ == "__main__":
-   cli()
+   main()
